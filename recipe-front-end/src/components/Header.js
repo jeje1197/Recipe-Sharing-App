@@ -17,9 +17,9 @@ const Header = () => {
 
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link className="nav-link" to="/view">View Product</Link>
+                        <Link className="nav-link" to="/add">Add Recipe</Link>
 
-                        <Link className="nav-link" to="/add">Add Product</Link>
+                        <Link className="nav-link" to="/myrecipes">My Recipes</Link>
                     </div>
                     </div>
                 </div>

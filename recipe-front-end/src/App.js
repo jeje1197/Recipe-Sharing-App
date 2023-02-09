@@ -12,11 +12,13 @@ function App() {
     <div className="App">
       <Header/>
 
-      <Routes>
-        <Route path="/" element={ loggedIn ? <Home/> : <Login/> } exact />
-        <Route path="/add" element={ <AddRecipes/>} />
-        <Route path="/myrecipes" element={<MyRecipes/>} />
-      </Routes>
+      { loggedIn ? 
+        <Routes>
+          <Route path="/" element={ <Home/> } exact />
+          <Route path="/add" element={ <AddRecipes/> } />
+          <Route path="/myrecipes" element={ <MyRecipes/> } />
+        </Routes> : <Login/>
+      }
     </div>
   );
 }
