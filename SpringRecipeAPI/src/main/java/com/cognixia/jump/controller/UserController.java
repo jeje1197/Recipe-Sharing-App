@@ -25,12 +25,12 @@ public class UserController {
 	UserRepository repo;
 	
 	@GetMapping("/user")
-	public List<User> getProducts() {
+	public List<User> getUsers() {
 		return repo.findAll();
 	}
 	
 	@GetMapping("/user/{id}")
-	public ResponseEntity<?> getProduct(@PathVariable int id) throws ResourceNotFoundException {
+	public ResponseEntity<?> getUser(@PathVariable int id) throws ResourceNotFoundException {
 		
 		Optional<User> found = repo.findById(id);
 		
@@ -42,7 +42,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/user")
-	public ResponseEntity<User> createProduct(@RequestBody User user) {
+	public ResponseEntity<User> createUser(@RequestBody User user) {
 		
 		user.setId(-1);
 		
@@ -52,7 +52,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/user/{id}")
-	public ResponseEntity<?> deleteProduct(@PathVariable int id) throws ResourceNotFoundException {
+	public ResponseEntity<?> deleteUser(@PathVariable int id) throws ResourceNotFoundException {
 		
 		Optional<User> found = repo.findById(id);
 		
