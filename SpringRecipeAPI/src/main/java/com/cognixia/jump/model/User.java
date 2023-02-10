@@ -25,8 +25,8 @@ public class User implements Serializable {
 	@NotBlank
 	private String password;
 	
-	@Column(nullable = false)
-	private String email;
+	@Column
+	private String profilePhoto;
 	
 	public User() {
 		
@@ -56,12 +56,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getProfilePhoto() {
+		return profilePhoto;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setProfilePhoto(String profilePhoto) {
+		this.profilePhoto = profilePhoto;
 	}
 
 	public static long getSerialversionuid() {
@@ -70,7 +70,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", profilePhoto=" + profilePhoto + "]";
 	}
 	
 }
