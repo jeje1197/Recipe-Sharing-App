@@ -32,7 +32,7 @@ public class RecipeController {
         return ResponseEntity.status(200).body(found.get());
     }
 
-    @PostMapping("/user")
+    @PostMapping("/recipe")
     public ResponseEntity<Recipe> saveRecipe(@RequestBody Recipe recipe){
         recipe.setId(-1);
 
