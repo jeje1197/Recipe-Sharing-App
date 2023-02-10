@@ -10,16 +10,16 @@ function App() {
   let loggedIn = true
   return (
     <div className="App">
-      <Header/>
-
       { loggedIn ? 
-        <Routes>
-          <Route path="/" element={ <Home/> } exact />
-          <Route path="/add" element={ <AddRecipes/> } />
-          <Route path="/myrecipes" element={ <MyRecipes/> } />
-        </Routes> : <Login/>
+          <div>
+            <Header/>
+            <Routes>
+              <Route path="/" element={ <Home/> } exact />
+              <Route path="/add" element={ <AddRecipes/> } />
+              <Route path="/myrecipes" element={ <MyRecipes/> } />
+            </Routes>
+          </div> : <Login/>
       }
-      
     </div>
   );
 }
