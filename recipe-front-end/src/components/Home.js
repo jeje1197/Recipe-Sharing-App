@@ -9,7 +9,7 @@ function Home() {
         <div className="Home">
             <div className="allCards">
                 <Card image={eggs} />
-                <Card image={pbj} />
+                {/* <Card image={pbj} /> */}
             </div>
         </div>
     )

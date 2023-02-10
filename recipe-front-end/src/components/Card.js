@@ -1,7 +1,11 @@
 import { saveRecipe, makeRecipe, deleteRecipe } from '../api/RecipeApi';
+import RecipeModal from './RecipeModal';
+import React, { useState } from 'react';
 
-// center image
 function Card(props) {
+    // const recipeName = "Insert Recipe Here"
+    const [displayModal, setDisplayModal] = useState(false);
+
     return (
         <div className="card" style={{width: "18rem"}}>
 
@@ -13,9 +17,11 @@ function Card(props) {
                 <h5 className="card-title">Meal goes here...</h5>
                 <h6 className="card-subtitle mb-2 text-muted">Author goes here...</h6>
                 <p className="card-text">optional caption goes here...</p>
-                <a href="/" className="btn btn-primary">Save</a>
-                <a href="/" className="btn btn-primary">Make</a>
+                <button className="btn btn-primary" onClick={() => { saveRecipe() }}>Save</button>
+                <button className="btn btn-primary" onClick={() => { makeRecipe(); setDisplayModal(true)}} data-toggle="modal" data-target="#exampleModal">Make</button>
             </div>
+            
+            <RecipeModal displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
         </div>
     )
 }
