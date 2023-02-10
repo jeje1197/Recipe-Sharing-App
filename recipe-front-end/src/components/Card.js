@@ -21,7 +21,7 @@ function Card(props) {
                 <button className="btn btn-primary" onClick={() => { makeRecipe(); setDisplayModal(true)}} data-toggle="modal" data-target="#exampleModal">Make</button>
             </div>
             
-            <RecipeModal displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
+            <RecipeModal image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
         </div>
     )
 }

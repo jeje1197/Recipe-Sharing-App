@@ -10,8 +10,10 @@ function RecipeModal (props) {
             <div className="modal-header">
               <h5 className="modal-title">Recipe Name</h5>
             </div>
+            <img className="cardImg"src={props.image} alt="Recipe Visual"/>
             <div className="modal-body">
-              <p>Modal body text goes here.</p>
+              <p>Recipe Steps goes here...</p>
+              <input type="file" id="img" name="img" accept="image/*" />
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary">Save changes</button>
