@@ -1,3 +1,5 @@
+import { saveRecipe, makeRecipe, deleteRecipe } from '../api/RecipeApi';
+
 // center image
 function Card(props) {
     return (
