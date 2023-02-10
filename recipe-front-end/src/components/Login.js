@@ -1,4 +1,7 @@
 function Login() {
+    const sendLoginInfo = () => {
+
+    }
 
     return (
         <form>
@@ -10,7 +13,10 @@ function Login() {
                 <label for="inputPassword">Password</label>
                 <input type="password" className="form-control" id="inputPassword" placeholder="Password"/>
             </div>
-            <button type="submit" className="btn btn-primary">Login</button>
+            <button type="submit" className="btn btn-primary" 
+                onClick={ () => { sendLoginInfo() } }>
+                Login
+            </button>
         </form>
     );
 }
