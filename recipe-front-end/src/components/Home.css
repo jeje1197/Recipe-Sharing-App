@@ -11,6 +11,16 @@
     margin-left: 20px;
 }
 
+.cardImgDiv {
+    height: 266px;
+    border: 1px solid black;
+}
+
+.cardImg {
+    max-width: 225px;
+    max-height: 225px;
+}
+
 .btn {
     margin: 10px;
     width: fit-content;
