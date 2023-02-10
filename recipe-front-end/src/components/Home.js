@@ -1,10 +1,12 @@
+import eggs from '../images/eggs.jpg';
+
 function Home() {
     // return <div>Home Page Component</div>;
 
     return (
         <div className="Home">
             <div className="card" style={{width: "18rem"}}>
-                <img src="../images/eggs.jpg" alt="Card image cap" />
+                <img src={ eggs } alt="Recipe Visual"/>
                 <div className="card-body">
                     <h5 className="card-title">Scrambled Eggs</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Delicious!</h6>
