@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cognixia.jump.model.Recipe;
+import com.cognixia.jump.model.User;
 import com.cognixia.jump.model.UserRecipe;
 import com.cognixia.jump.repository.UserRecipeRepository;
 
@@ -37,11 +38,11 @@ public class UserRecipeController {
     
     @GetMapping("/userrecipe/{userId}")
     public List<Recipe> getAllRecipes(@PathVariable int userId) {
-    	
+    	return repo.getRecipesFromUserId(userId + "");
     }
     
     @GetMapping("/userrecipe/{recipeId}")
-    public List<Recipe> getAllRecipes(@PathVariable int recipeId) {
-    	
+    public List<User> getAllUsers(@PathVariable int recipeId) {
+    	return repo.getUsersFromRecipeId(recipeId + "");
     }
 }
