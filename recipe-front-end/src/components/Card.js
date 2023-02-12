@@ -8,8 +8,8 @@ function Card(props) {
     return (
         <div className="card" style={{width: "18rem"}}>
 
-            <div className="cardImgDiv ">
-                <img className="cardImg rounded mx-auto d-block"src={props.image} alt="Recipe Visual"/>
+            <div className="cardImgDiv rounded">
+                <img className="cardImg rounded mx-auto d-block" src={props.image} alt="Recipe Visual"/>
             </div>
             
             <div className="card-body">

@@ -1,4 +1,5 @@
 .recipe-app-header {
+    width: 100%;
     background-color: rgb(211, 205, 205);
     background-image: url("../images/foodbanner2.png");
     background-repeat: no-repeat;
@@ -17,13 +18,14 @@
 
 .recipe-app-navbar {
     color:black;
-    
+    background-color: #fff;
+    /* background-color: rgb(158, 99, 77); */
 }
 
 .recipe-app-navbar-text1 {
-    
+    font-weight: 400;
 }
 
 .recipe-app-navbar-text2 {
-
+    font-weight: 400;
 }

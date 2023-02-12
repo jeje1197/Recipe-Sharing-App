@@ -7,7 +7,7 @@ const Header = () => {
         <div className="recipe-app-header">
             <h1 className="display-2 recipe-app-header-text">Recipe Sharing App</h1>
 
-            <nav className="navbar navbar-expand-lg bg-light recipe-app-navbar">
+            <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
 
                     <Link className="navbar-brand recipe-app-navbar-text1" to="/">Home</Link>

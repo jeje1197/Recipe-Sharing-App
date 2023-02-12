@@ -7,20 +7,23 @@ import AddRecipes from './components/AddRecipes';
 import MyRecipes from './components/MyRecipes';
 
 function App() {
-  let loggedIn = true
+  let loggedIn = false
+  // loggedIn = true
 
   return (
     <div className="App">
       <Header/>
-      { loggedIn ? 
-          <div>
-            <Routes>
-              <Route path="/" element={ <Home/> } exact />
-              <Route path="/add" element={ <AddRecipes/> } />
-              <Route path="/myrecipes" element={ <MyRecipes/> } />
-            </Routes>
-          </div> : <Login/>
-      }
+
+      {/* <div className="recipe-app-body-container"> */}
+        { loggedIn ? 
+              <Routes>
+                <Route path="/" element={ <Home/> } exact />
+                <Route path="/add" element={ <AddRecipes/> } />
+                <Route path="/myrecipes" element={ <MyRecipes/> } />
+              </Routes>
+            : <Login/>
+        }
+      {/* </div> */}
     </div>
   );
 }
