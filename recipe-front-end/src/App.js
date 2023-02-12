@@ -14,16 +14,14 @@ function App() {
     <div className="App">
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
 
-      {/* <div className="recipe-app-body-container"> */}
-        { loggedIn ? 
-              <Routes>
-                <Route path="/" element={ <Home/> } exact />
-                <Route path="/add" element={ <AddRecipes/> } />
-                <Route path="/myrecipes" element={ <MyRecipes/> } />
-              </Routes>
-            : <Login setLoggedIn={setLoggedIn} />
-        }
-      {/* </div> */}
+      { loggedIn ? 
+            <Routes>
+              <Route path="/" element={ <Home/> } exact />
+              <Route path="/add" element={ <AddRecipes/> } />
+              <Route path="/myrecipes" element={ <MyRecipes/> } />
+            </Routes>
+          : <Login setLoggedIn={setLoggedIn} />
+      }
     </div>
   );
 }

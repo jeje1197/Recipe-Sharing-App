@@ -1,10 +1,7 @@
 .allCards {
-    margin: 3rem;
-    padding: 2rem;
     display: flex;
     flex-flow: wrap;
-    background-color: #fff;
-    border: 0.4rem solid burlywood;
+    padding: 2rem;
 }
 
 .card {

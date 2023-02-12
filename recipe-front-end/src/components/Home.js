@@ -7,15 +7,15 @@ function Home() {
     
     return (
         <div className="Home">
-            <div>
-                <h4>Community Hub</h4>
+            <div className="recipe-app-body-container">
+                <h3>Community Hub</h3>
+                <hr/>
+                <div className="allCards mx-auto">
+                    <Card image={eggs} />
+                    <Card image={pbj} />
+                </div>
             </div>
-            <div className="allCards">
-                
-
-                <Card image={eggs} />
-                <Card image={pbj} />
-            </div>
+            
         </div>
     )
 }

@@ -6,6 +6,7 @@ const Header = (props) => {
     const logout = () => {
         props.setLoggedIn(false)
     }
+
     return (
         <div className="recipe-app-header">
             <h1 className="display-2 recipe-app-header-text">Recipe Sharing App</h1>
@@ -26,13 +27,13 @@ const Header = (props) => {
                         <Link className="nav-link recipe-app-navbar-text2" to="/myrecipes">My Recipes</Link>
                     </div>
                     </div>
-                    { props.loggedIn ?
+                    {/* { props.loggedIn ?
                         <button className="btn btn-primary" 
                         onClick={logout}
                         >
                             Logout
                         </button> : null
-                    }
+                    } */}
                     
                 </div>
             </nav>

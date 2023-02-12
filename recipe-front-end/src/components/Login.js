@@ -9,7 +9,7 @@ function Login(props) {
 
     return (
         <div className="login-div">
-            <div className="card login-card">
+            <div className="card login-card mx-auto">
                 <form>
                     <h5 className="card-title login-header">Sign In</h5>
 

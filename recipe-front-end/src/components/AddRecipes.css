@@ -1,10 +1,6 @@
-.addrecipes-body {
-    margin: 3rem;
-    padding: 2rem;
+.ingredient-list {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     flex-flow: wrap;
-    background-color: #fff;
-    border: 0.4rem solid burlywood;
+    padding: 2rem;
+    justify-content: space-around;
 }
