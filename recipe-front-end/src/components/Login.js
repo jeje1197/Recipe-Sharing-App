@@ -1,3 +1,5 @@
+import './Login.css'
+
 function Login() {
 
     const sendLoginInfo = (username, password) => {
@@ -6,36 +8,26 @@ function Login() {
     }
 
     return (
-        <div style={{height: "80%"}}>
-            <h1 className="display-2">Recipe Sharing App</h1>
-
-            <div style={{
-                display: "flex",
-                height: "100%",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center"
+        <div className="recipe-login-div">
+            <div className="card" style={{
+                width: "18rem", 
+                padding: "15px",
                 }}>
-
-                <div className="card" style={{
-                    width: "18rem", 
-                    padding: "15px",
-                    }}>
-                    <form>
-                        <div className="form-group">
-                            <label htmlFor="inputUsername">Username</label>
-                            <input type="text" className="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter username"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputPassword">Password</label>
-                            <input type="password" className="form-control" id="inputPassword" placeholder="Password"/>
-                        </div>
-                        <button className="btn btn-primary" 
-                            onClick={ () => { sendLoginInfo() } }>
-                            Login
-                        </button>
-                    </form>
-                </div>
+                <form>
+                    <div className="form-group">
+                        <label htmlFor="inputUsername">Username</label>
+                        <input type="text" className="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter username"/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="inputPassword">Password</label>
+                        <input type="password" className="form-control" id="inputPassword" placeholder="Password"/>
+                    </div>
+                    
+                    <button className="btn btn-primary" 
+                        onClick={ () => { sendLoginInfo() } }>
+                        Login
+                    </button>
+                </form>
             </div>
         </div>
     );

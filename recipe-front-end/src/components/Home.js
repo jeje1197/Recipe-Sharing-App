@@ -4,7 +4,7 @@ import '../components/Home.css';
 import Card from './Card';
 
 function Home() {
-    // return <div>Home Page Component</div>;
+    
     return (
         <div className="Home">
             <div className="allCards">

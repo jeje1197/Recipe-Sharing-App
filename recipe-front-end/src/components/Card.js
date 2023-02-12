@@ -3,7 +3,6 @@ import RecipeModal from './RecipeModal';
 import React, { useState } from 'react';
 
 function Card(props) {
-    // const recipeName = "Insert Recipe Here"
     const [displayModal, setDisplayModal] = useState(false);
 
     return (
@@ -18,7 +17,7 @@ function Card(props) {
                 <h6 className="card-subtitle mb-2 text-muted">Author goes here...</h6>
                 <p className="card-text">optional caption goes here...</p>
                 <button className="btn btn-primary" onClick={() => { saveRecipe() }}>Save</button>
-                <button className="btn btn-primary" onClick={() => { makeRecipe(); setDisplayModal(true)}} data-toggle="modal" data-target="#exampleModal">Make</button>
+                <button className="btn btn-primary" onClick={() => { makeRecipe(); setDisplayModal(true)}}>Make</button>
             </div>
             
             <RecipeModal image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />

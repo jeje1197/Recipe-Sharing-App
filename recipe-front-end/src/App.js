@@ -7,13 +7,13 @@ import AddRecipes from './components/AddRecipes';
 import MyRecipes from './components/MyRecipes';
 
 function App() {
-  let loggedIn = true
+  let loggedIn = false
 
   return (
     <div className="App">
+      <Header/>
       { loggedIn ? 
           <div>
-            <Header/>
             <Routes>
               <Route path="/" element={ <Home/> } exact />
               <Route path="/add" element={ <AddRecipes/> } />
