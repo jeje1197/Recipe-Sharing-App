@@ -7,7 +7,7 @@ import AddRecipes from './components/AddRecipes';
 import MyRecipes from './components/MyRecipes';
 
 function App() {
-  let loggedIn = false
+  let loggedIn = true
 
   return (
     <div className="App">

@@ -8,12 +8,11 @@ function Login() {
     }
 
     return (
-        <div className="recipe-login-div">
-            <div className="card" style={{
-                width: "18rem", 
-                padding: "15px",
-                }}>
+        <div className="login-div">
+            <div className="card login-card">
                 <form>
+                    <h5 className="card-title login-header">Sign In</h5>
+
                     <div className="form-group">
                         <label htmlFor="inputUsername">Username</label>
                         <input type="text" className="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter username"/>

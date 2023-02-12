@@ -5,12 +5,12 @@ import './Header.css'
 const Header = () => {
     return (
         <div className="recipe-app-header">
-            <h1 className="display-2">Recipe Sharing App</h1>
+            <h1 className="display-2 recipe-app-header-text">Recipe Sharing App</h1>
 
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg bg-light recipe-app-navbar">
                 <div className="container-fluid">
 
-                    <Link className="navbar-brand" to="/">Home</Link>
+                    <Link className="navbar-brand recipe-app-navbar-text1" to="/">Home</Link>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -18,9 +18,9 @@ const Header = () => {
 
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link className="nav-link" to="/add">Add Recipe</Link>
+                        <Link className="nav-link recipe-app-navbar-text2" to="/add">Add Recipe</Link>
 
-                        <Link className="nav-link" to="/myrecipes">My Recipes</Link>
+                        <Link className="nav-link recipe-app-navbar-text2" to="/myrecipes">My Recipes</Link>
                     </div>
                     </div>
                 </div>
