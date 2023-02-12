@@ -1,10 +1,10 @@
 import './Login.css'
 
-function Login() {
+function Login(props) {
 
     const sendLoginInfo = (username, password) => {
         // Sends Credentials to Backend for Validation
-
+        props.setLoggedIn(true)
     }
 
     return (
@@ -23,7 +23,10 @@ function Login() {
                     </div>
                     
                     <button className="btn btn-primary login-form-button" 
-                        onClick={ () => { sendLoginInfo() } }>
+                    onClick={ (event) => { 
+                        sendLoginInfo(); 
+                        event.preventDefault()
+                    }}>
                         Login
                     </button>
                 </form>

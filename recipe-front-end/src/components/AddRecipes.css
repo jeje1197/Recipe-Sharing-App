@@ -1,0 +1,10 @@
+.addrecipes-body {
+    margin: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: wrap;
+    background-color: #fff;
+    border: 0.4rem solid burlywood;
+}

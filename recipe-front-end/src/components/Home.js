@@ -7,7 +7,12 @@ function Home() {
     
     return (
         <div className="Home">
+            <div>
+                <h4>Community Hub</h4>
+            </div>
             <div className="allCards">
+                
+
                 <Card image={eggs} />
                 <Card image={pbj} />
             </div>
