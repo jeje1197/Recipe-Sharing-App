@@ -7,10 +7,8 @@ function AddRecipes() {
     const selectedIngredients = [];
 
     useEffect( () => {
-        // console.log("Hello, this component was mounted!")
-
-        RecipeApi.getIngredientsSpoonacular(setIngredients);
-    }, [] )
+        // RecipeApi.getIngredientsSpoonacular(setIngredients);
+    }, [])
 
     const findRecipes = () => {
         // This finds a list of recipes from the ingredients selected

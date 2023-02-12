@@ -21,11 +21,11 @@ const Header = (props) => {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav">
-                        <Link className="nav-link recipe-app-navbar-text2" to="/add">Add Recipe</Link>
+                        <div className="navbar-nav">
+                            <Link className="nav-link recipe-app-navbar-text2" to="/add">Add Recipe</Link>
 
-                        <Link className="nav-link recipe-app-navbar-text2" to="/myrecipes">My Recipes</Link>
-                    </div>
+                            <Link className="nav-link recipe-app-navbar-text2" to="/myrecipes">My Recipes</Link>
+                        </div>
                     </div>
                     {/* { props.loggedIn ?
                         <button className="btn btn-primary" 
@@ -36,6 +36,10 @@ const Header = (props) => {
                     } */}
                     
                 </div>
+                {/* <form class="form-inline" style={{display: 'flex', flexDirection: 'row'}}>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> */}
             </nav>
 
         </div>

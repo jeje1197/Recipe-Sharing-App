@@ -24,6 +24,14 @@ const RecipeApi = {
             .catch( (error) => { 
                 console.log(error) 
             } );
+    },
+
+    getRecipesFromIngredients: (ingredients) => {
+        console.log("Getting Recipes")
+    },
+
+    getRecipesByUser: (user) => {
+        
     }
 }
 
