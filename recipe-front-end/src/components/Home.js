@@ -10,7 +10,7 @@ function Home() {
             <div className="recipe-app-body-container">
                 <h3>Community Hub</h3>
                 <hr/>
-                <div className="allCards mx-auto">
+                <div className="allCards">
                     <Card image={eggs} />
                     <Card image={pbj} />
                 </div>

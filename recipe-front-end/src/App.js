@@ -8,10 +8,11 @@ import MyRecipes from './components/MyRecipes';
 import { useState } from 'react';
 
 function App() {
+  const [userData, setUserData] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
 
   return (
-    <div className="App">
+    <div className="App recipe-flexbox-col">
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
 
       { loggedIn ? 

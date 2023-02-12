@@ -7,9 +7,9 @@ function AddRecipes() {
     const selectedIngredients = [];
 
     useEffect( () => {
-        console.log("Hello, this component was mounted!")
+        // console.log("Hello, this component was mounted!")
 
-        // RecipeApi.getIngredientsSpoonacular(setIngredients);
+        RecipeApi.getIngredientsSpoonacular(setIngredients);
     }, [] )
 
     const findRecipes = () => {
@@ -20,10 +20,11 @@ function AddRecipes() {
     return (
         <div>
             <div className="recipe-app-body-container">
-                <h3>Select Ingredients</h3>
+                <h3>Add Recipe</h3>
                 <hr/>
+                <h5 style={{textAlign: "left", paddingLeft: "1.25rem"}}>Select Ingredients</h5>
                 <div className="ingredient-list">
-                    {
+                    {   ingredients ? 
                         ingredients.map((element) => {
                             return (
                                 <div className="form-check">
@@ -33,7 +34,7 @@ function AddRecipes() {
                                     </label>
                                 </div>
                             )
-                        })
+                        }) : null
                     } 
                     <button className="btn btn-primary login-form-button" 
                     onClick={ findRecipes }>

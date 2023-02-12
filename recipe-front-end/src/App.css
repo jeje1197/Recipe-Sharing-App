@@ -6,8 +6,13 @@
   background-position-y: 1rem;
 }
 
+.recipe-flexbox-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .recipe-app-body-container {
-  margin: 3rem;
+  margin: 2.5rem;
   padding: 2rem;
   border: 0.4rem solid burlywood;
   background-color: #fff;
