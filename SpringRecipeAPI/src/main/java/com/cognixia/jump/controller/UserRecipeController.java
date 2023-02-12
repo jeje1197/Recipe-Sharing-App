@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +33,7 @@ public class UserRecipeController {
         return repo.findAll();
     }
     
-    @PostMapping("/userrecipe")
+    /*@PostMapping("/userrecipe")
     public ResponseEntity<UserRecipe> assignUserToRecipe(@RequestBody UserRecipe ur) {
 
     	ur.setId(-1);
@@ -40,11 +41,30 @@ public class UserRecipeController {
     	UserRecipe created = repo.save(ur);
     	
     	return ResponseEntity.status(201).body(created);
-    }
-
-    /*public ResponseEntity<?> saveRecipeToUser(@PathParam(value="userId") int userId, @PathParam(value="recipeId") int recipeId){
-
     }*/
+    @PostMapping("/userrecipe")
+    public ResponseEntity<?> saveRecipeToUser(@PathParam(value="userId") int userId, @PathParam(value="recipeId") int recipeId) throws ResourceNotFoundException{
+        Optional <Recipe> recipeFound= recipeRepo.findById(recipeId);
+        Optional <User> userFound=userRepo.findById(userId);
+
+        if(userFound.isEmpty()) {
+            throw new ResourceNotFoundException("User", userId);
+        }
+        else if (recipeFound.isEmpty()) {
+            throw new ResourceNotFoundException("Recipe", recipeId);
+        }
+
+        Optional<UserRecipe> userRecipe = repo.userRecipeExists(userId, recipeId);
+
+        if(userRecipe.isPresent()) {
+            return ResponseEntity.status(400).body("This recipe is already saved by this user.");
+        }
+        UserRecipe newUserRecipe=new UserRecipe(0,userFound.get(),recipeFound.get()," "," ");
+
+        UserRecipe createdUserRecipe= repo.save(newUserRecipe);
+
+        return ResponseEntity.status(201).body(createdUserRecipe);
+    }
     
     @GetMapping("/userrecipe/{userId}")
     public List<Recipe> getAllRecipes(@PathVariable int userId) {
