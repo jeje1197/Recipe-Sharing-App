@@ -1,13 +1,15 @@
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/controller/UserController.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/model/User.java
+/Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/service/UserService.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/SpringRecipeApiApplication.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/controller/RecipeController.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/model/UserRecipe.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/repository/UserRepository.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/exception/ErrorDetails.java
+/Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/controller/UserRecipeController.java
+/Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/repository/UserRecipeRepository.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/exception/ResourceNotFoundException.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/exception/GlobalExceptionHandler.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/model/Recipe.java
-/Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/config/CorsConfig.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/config/SecurityConfiguration.java
 /Users/meta/Projects/Recipe-Sharing-App/SpringRecipeAPI/src/main/java/com/cognixia/jump/repository/RecipeRepository.java

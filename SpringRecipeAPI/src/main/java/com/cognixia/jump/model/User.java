@@ -1,13 +1,8 @@
 package com.cognixia.jump.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 @Entity
 public class User implements Serializable {
@@ -27,7 +22,13 @@ public class User implements Serializable {
 	
 	@Column
 	private String profilePhoto;
-	
+
+	public User(Integer id,String username, String password, String profilePhoto){
+		this.id=id;
+		this.username=username;
+		this.password=password;
+		this.profilePhoto=profilePhoto;
+	}
 	public User() {
 		
 	}

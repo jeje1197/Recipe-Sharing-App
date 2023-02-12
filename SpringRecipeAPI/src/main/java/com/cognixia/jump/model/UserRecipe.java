@@ -28,7 +28,14 @@ public class UserRecipe {
     
     @Column
     private String userPhoto;
-    
+
+	public UserRecipe(Integer id, User user, Recipe recipe, String caption, String userPhoto) {
+		this.id=id;
+		this.user=user;
+		this.recipe=recipe;
+		this.caption=caption;
+		this.userPhoto=userPhoto;
+	}
     public UserRecipe() {
     	
     }
