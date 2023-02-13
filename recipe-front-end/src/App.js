@@ -19,7 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={ <Home userdata={userData}/> } exact />
               <Route path="/add" element={ <AddRecipes/> } />
-              <Route path="/myrecipes" element={ <MyRecipes/> } />
+              <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/> } />
             </Routes>
           : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
       }
