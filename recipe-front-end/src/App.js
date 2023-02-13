@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 function App() {
   const [userData, setUserData] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   return (
     <div className="App recipe-flexbox-col">

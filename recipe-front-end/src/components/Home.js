@@ -12,7 +12,6 @@ function Home(props) {
         RecipeApi.loadAllUserRecipes()
             .then( (recipes) => {
                 setUserRecipes(recipes);
-                console.log(recipes)
             })
             .catch((error) => {
                 console.log(error);

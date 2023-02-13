@@ -4,16 +4,39 @@ import RecipeApi from '../api/RecipeApi';
 
 function AddRecipes() {
     const [ingredients, setIngredients] = useState([]);
-    const selectedIngredients = [];
+    // const selectedIngredients = [];
+    let key = 0;
 
     useEffect( () => {
-        // RecipeApi.getIngredientsSpoonacular(setIngredients);
+        RecipeApi.getIngredientsSpoonacular()
+            .then((ingredients) => {
+                setIngredients(ingredients);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }, [])
+
+    const getCheckedIngredients = () => {
+        const ingredientList = document.getElementsByClassName("ingredient");
+        const selectedIngredients = [];
+
+        for (var ingredientDiv of ingredientList) {
+            const isChecked = ingredientDiv.firstChild.checked;
+            const ingredientName = ingredientDiv.lastChild.textContent;
+            if (isChecked) {
+                selectedIngredients.push(ingredientName);
+            }
+        }
+        return selectedIngredients;
+    }
 
     const findRecipes = () => {
         // This finds a list of recipes from the ingredients selected
-
+        const selectedIngredients = getCheckedIngredients();
+        console.log(selectedIngredients);
     }
+
 
     return (
         <div>
@@ -25,7 +48,7 @@ function AddRecipes() {
                     {   ingredients ? 
                         ingredients.map((element) => {
                             return (
-                                <div className="form-check">
+                                <div key={key++} className="form-check ingredient">
                                     <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         {element.name}

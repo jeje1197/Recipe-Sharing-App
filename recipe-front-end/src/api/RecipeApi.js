@@ -68,7 +68,7 @@ const RecipeApi = {
             .catch( (error) => { 
                 console.log(error) 
             });
-            console.log(recipes)
+            // console.log(recipes)
         return recipes;
     },
 
@@ -112,20 +112,26 @@ const RecipeApi = {
             console.log(recipes)
         updateComponent(true)
     },
+
+    spoonacularAPIKey: "30eaf136e2f244cc93220c1b6bc3c45a",
     
-    getIngredientsSpoonacular: (setIngredients) => {
-        const URL = "https://api.spoonacular.com/food/ingredients/search?query=banana&apiKey=30eaf136e2f244cc93220c1b6bc3c45a";
+    getIngredientsSpoonacular: async (setIngredients) => {
+        const URL = "https://api.spoonacular.com/food/ingredients/search?query=banana&" + 
+            "apiKey=" + RecipeApi.spoonacularAPIKey;
+
     
-        fetch(URL)
+        const ingredients = await fetch(URL)
             .then( (result) => {
                 return result.json() // data in next section
             } )
             .then( (data) => {
-                setIngredients(data.results)
+                return data.results
             } )
             .catch( (error) => { 
                 console.log(error) 
-            } );
+            });
+
+        return ingredients
     },
 
     getRecipesFromIngredients: (ingredients) => {

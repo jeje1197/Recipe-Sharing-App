@@ -5,8 +5,7 @@ import React, { useState } from 'react';
 function Card(props) {
     const [displayModal, setDisplayModal] = useState(false);
     const userData = props.userdata;
-    console.log(userData)
-    console.log(props.recipeuser)
+    
     const isCreator = () => {
         return userData.username === props.recipeuser
     } 
