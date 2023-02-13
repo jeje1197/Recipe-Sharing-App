@@ -25,10 +25,10 @@ function Home() {
                             
                             return (
                                 <Card key={key++} 
-                                    mealName={"Meal"}
-                                    author={"Author"} 
+                                    title={"Meal"}
+                                    subtitle={"Author"} 
                                     caption={"Optional Caption"} 
-                                    image={eggs} 
+                                    image={eggs}
                                 />
                             )
                         })

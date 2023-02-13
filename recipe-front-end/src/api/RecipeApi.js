@@ -1,6 +1,7 @@
 const RecipeApi = {
     baseURI: "http://localhost:8080",
 
+    // Login Validation
     getAllUsers: async () => {
         const users = await fetch(RecipeApi.baseURI + "/api/user", {
             method: "GET",
