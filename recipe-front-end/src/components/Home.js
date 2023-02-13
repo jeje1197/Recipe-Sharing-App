@@ -1,18 +1,22 @@
-import eggs from '../images/eggs.jpg';
-import pbj from '../images/pbj.jpeg';
 import '../components/Home.css';
 import Card from './Card';
 import { useEffect, useState } from 'react';
 import RecipeApi from '../api/RecipeApi';
 
 function Home() {
-    const [userRecipes, setUserRecipes] = useState([{}, {}]);
+    const [userRecipes, setUserRecipes] = useState([]);
     let key = 0;
 
-    // useEffect(() => {
-    //     RecipeApi.loadAllUserRecipes()
-    //         .then( (recipes) => setUserRecipes(recipes))
-    // }, [])
+    useEffect(() => {
+        RecipeApi.loadAllUserRecipes()
+            .then( (recipes) => {
+                setUserRecipes(recipes);
+                console.log(recipes)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, [])
     
     return (
         <div className="Home">
@@ -21,14 +25,14 @@ function Home() {
                 <hr/>
                 <div className="allCards"> 
                     {
-                        userRecipes && userRecipes.map((recipe) => {
+                        userRecipes && userRecipes.map((userRecipe) => {
                             
                             return (
                                 <Card key={key++} 
-                                    title={"Meal"}
-                                    subtitle={"Author"} 
-                                    caption={"Optional Caption"} 
-                                    image={eggs}
+                                    title={userRecipe.recipe.name}
+                                    subtitle={userRecipe.user.username} 
+                                    caption={userRecipe.caption}
+                                    image={userRecipe.userPhoto.trim() ? userRecipe.userPhoto : userRecipe.recipe.imageLink}
                                 />
                             )
                         })

@@ -22,12 +22,15 @@ const RecipeApi = {
     loginAsUser: async (userData) => {
         // Credential validation should occur in the backend
         const users = await RecipeApi.getAllUsers()
+        if (!users) {
+            return false;
+        }
         for(let i = 0; i < users.length; i++) {
             const user = users[i]
             if (userData.username === user.username && 
                 userData.password === user.password) {
                 console.log("Logged in")
-                return true
+                return user
             }
         }
         return false
@@ -47,7 +50,7 @@ const RecipeApi = {
             .catch( (error) => { 
                 console.log(error) 
             });
-            console.log(recipes)
+            // console.log(recipes)
         return recipes;
     },
 

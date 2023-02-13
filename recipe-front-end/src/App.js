@@ -8,8 +8,8 @@ import MyRecipes from './components/MyRecipes';
 import { useState } from 'react';
 
 function App() {
-  const [userData, setUserData] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   return (
     <div className="App recipe-flexbox-col">
@@ -21,7 +21,7 @@ function App() {
               <Route path="/add" element={ <AddRecipes/> } />
               <Route path="/myrecipes" element={ <MyRecipes/> } />
             </Routes>
-          : <Login setLoggedIn={setLoggedIn} />
+          : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
       }
     </div>
   );

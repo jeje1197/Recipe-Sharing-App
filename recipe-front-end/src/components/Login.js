@@ -13,6 +13,9 @@ function Login(props) {
             alert("Invalid username or password.")
             return
         }
+
+        // Set state for application userData
+        props.setUserData(userData)
         props.setLoggedIn(true)
     }
 
