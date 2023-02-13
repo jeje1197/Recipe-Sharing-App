@@ -73,7 +73,22 @@ const RecipeApi = {
     },
 
     saveRecipe: async (userData, recipeId) => {
-        console.log("Saving Recipe");
+        console.log(userData)
+        const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/?userId=" + userData.id +
+                        "&recipeId=" + recipeId, {
+            method: "POST",
+            mode: "cors",
+        })
+        .then( (result) => {
+            return result.json()
+        })
+        .then( (data) => {
+            return data
+        })
+        .catch( (error) => { 
+            console.log(error) 
+        });
+        console.log(recipes)
     },
     
     makeRecipe: () => {

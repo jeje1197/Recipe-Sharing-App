@@ -18,7 +18,7 @@ function Card(props) {
                     {props.subtitle}
                 </h6>
                 <p className="card-text">{props.caption}</p>
-                <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe() }}>Save</button>
+                <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(props.userdata, props.recipe) }}>Save</button>
                 <button className="btn btn-primary" onClick={() => { RecipeApi.makeRecipe(); setDisplayModal(true)}}>Make</button>
             </div>
             

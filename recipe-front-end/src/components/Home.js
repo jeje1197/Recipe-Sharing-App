@@ -3,7 +3,7 @@ import Card from './Card';
 import { useEffect, useState } from 'react';
 import RecipeApi from '../api/RecipeApi';
 
-function Home() {
+function Home(props) {
     const [userRecipes, setUserRecipes] = useState([]);
     let key = 0;
 
@@ -28,7 +28,9 @@ function Home() {
                         userRecipes && userRecipes.map((userRecipe) => {
                             
                             return (
-                                <Card key={key++} 
+                                <Card userdata={props.userdata}
+                                    recipe={userRecipe.recipe.id}
+                                    key={key++} 
                                     title={userRecipe.recipe.name}
                                     subtitle={userRecipe.user.username} 
                                     caption={userRecipe.caption}
