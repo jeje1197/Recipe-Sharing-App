@@ -33,7 +33,7 @@ public class RecipeController {
         return ResponseEntity.status(200).body(found.get());
     }
 
-    @GetMapping("/recipe/")
+    @GetMapping("/recipe1/")
     public ResponseEntity<?> getRecipeByName(@PathParam(value="Name") String name) throws ResourceNotFoundException{
         Optional<Recipe> found=repo.getRecipeByName(name);
         if(found.isEmpty()) {

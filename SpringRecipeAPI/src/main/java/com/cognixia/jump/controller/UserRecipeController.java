@@ -18,7 +18,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class UserRecipeController {
-	
+
 	@Autowired
     UserRecipeRepository repo;
 
@@ -32,16 +32,6 @@ public class UserRecipeController {
     public List<UserRecipe> getUserRecipes(){
         return repo.findAll();
     }
-    
-    /*@PostMapping("/userrecipe")
-    public ResponseEntity<UserRecipe> assignUserToRecipe(@RequestBody UserRecipe ur) {
-
-    	ur.setId(-1);
-    	
-    	UserRecipe created = repo.save(ur);
-    	
-    	return ResponseEntity.status(201).body(created);
-    }*/
 
     /*Get user recipe by Pathparams: UserId and recipeId*/
     @PostMapping("/userrecipe")
