@@ -26,6 +26,10 @@ public class Recipe implements Serializable {
 
     }
 
+    /*public Recipe() {
+
+    }*/
+
     public Integer getId() {
         return id;
     }

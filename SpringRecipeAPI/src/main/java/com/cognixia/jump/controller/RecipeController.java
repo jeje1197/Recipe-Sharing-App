@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,16 @@ public class RecipeController {
         }
 
         return ResponseEntity.status(200).body(found.get());
+    }
+
+    @GetMapping("/recipe/")
+    public ResponseEntity<?> getRecipeByName(@PathParam(value="Name") String name) throws ResourceNotFoundException{
+        Optional<Recipe> found=repo.getRecipeByName(name);
+        if(found.isEmpty()) {
+            throw new ResourceNotFoundException("Recipe with name = " + name + " was not found.");
+        }
+        return ResponseEntity.status(200).body(found.get());
+
     }
 
     @PostMapping("/recipe")
