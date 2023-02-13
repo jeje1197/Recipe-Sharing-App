@@ -1,9 +1,14 @@
+import RecipeApi from '../api/RecipeApi';
 import './Login.css'
 
 function Login(props) {
 
     const sendLoginInfo = (username, password) => {
         // Sends Credentials to Backend for Validation
+        // console.log(username, password)
+        RecipeApi.loginAsUser({
+            username, password
+        })
         props.setLoggedIn(true)
     }
 
@@ -24,7 +29,10 @@ function Login(props) {
                     
                     <button className="btn btn-primary login-form-button" 
                     onClick={ (event) => { 
-                        sendLoginInfo(); 
+                        sendLoginInfo(
+                            document.getElementById("inputUsername").value,
+                            document.getElementById("inputPassword").value,
+                            );
                         event.preventDefault()
                     }}>
                         Login

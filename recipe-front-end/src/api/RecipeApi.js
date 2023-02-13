@@ -1,4 +1,30 @@
 const RecipeApi = {
+    baseURI: "http://localhost:8080",
+
+    getAllUsers: async () => {
+        const users = await fetch(RecipeApi.baseURI + "/api/user", {
+            method: "GET",
+            mode: "cors",
+        })
+            .then( (result) => {
+                return result.json()
+            })
+            .then( (data) => {
+                return data
+            })
+            .catch( (error) => { 
+                console.log(error) 
+            });
+
+        return users;
+    }, 
+
+    loginAsUser: (userData) => {
+        const users = RecipeApi.getAllUsers();
+        console.log(users)
+        
+    },
+
     saveRecipe: () => {
         console.log("Saving Recipe");
     },
