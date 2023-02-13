@@ -73,12 +73,13 @@ function AddRecipes(props) {
                 </div>
 
                 {
-                    recipes.length !== 0 && <h5 style={{textAlign: "left", paddingLeft: "1.25rem"}}>Results</h5>
+                    recipes.length !== 0 && <hr/>
                 }
 
                 {
-                    recipes.length !== 0 && <hr/>
+                    recipes.length !== 0 && <h5 style={{textAlign: "left", paddingLeft: "1.25rem"}}>Results</h5>
                 }
+
                 
                 <div className="allCards"> 
                 {
