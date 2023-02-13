@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 
 function Card(props) {
     const [displayModal, setDisplayModal] = useState(false);
-    const userData = props.userdata;
     
     const isCreator = () => {
-        return userData.username === props.recipeuser
+        if (!props.userdata || !props.recipeuser) {
+            return false
+        }
+        return props.userdata.username === props.recipeuser
     } 
 
     return (
@@ -26,11 +28,11 @@ function Card(props) {
                 { isCreator() ? (
                         <button className="btn btn-primary" onClick={() => { RecipeApi.deleteRecipe(props.userrecipeid, props.updateComp) }}>Delete</button>
                     ) : (
-                        <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(userData, props.recipe) }}>Save</button>
+                        <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(props.userdata, props.recipe) }}>Save</button>
                     )
                 }
                 
-                <button className="btn btn-primary" onClick={() => { RecipeApi.makeRecipe(); setDisplayModal(true)}}>Make</button>
+                <button className="btn btn-primary" onClick={() => { setDisplayModal(true)}}>Make</button>
             </div>
             
             <RecipeModal userdata={props.userdata} recipe={props.recipe} image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />

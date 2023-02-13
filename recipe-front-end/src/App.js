@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 function App() {
   const [userData, setUserData] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className="App recipe-flexbox-col">
@@ -18,7 +18,7 @@ function App() {
       { loggedIn ? 
             <Routes>
               <Route path="/" element={ <Home userdata={userData}/> } exact />
-              <Route path="/add" element={ <AddRecipes/> } />
+              <Route path="/add" element={ <AddRecipes userdata={userData}/> } />
               <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/> } />
             </Routes>
           : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />

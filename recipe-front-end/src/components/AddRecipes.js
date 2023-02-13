@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import './AddRecipes.css'
 import RecipeApi from '../api/RecipeApi';
+import Card from './Card';
 
-function AddRecipes() {
+function AddRecipes(props) {
     const [ingredients, setIngredients] = useState([]);
-    // const selectedIngredients = [];
+    const [recipes, setRecipes] = useState([])
     let key = 0;
 
     useEffect( () => {
@@ -31,10 +32,18 @@ function AddRecipes() {
         return selectedIngredients;
     }
 
-    const findRecipes = () => {
+    const findRecipes = async() => {
         // This finds a list of recipes from the ingredients selected
         const selectedIngredients = getCheckedIngredients();
-        console.log(selectedIngredients);
+        // console.log(selectedIngredients);
+
+        RecipeApi.getRecipesFromIngredients(selectedIngredients)
+            .then( (recipes) => {
+                setRecipes(recipes)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
 
@@ -56,11 +65,39 @@ function AddRecipes() {
                                 </div>
                             )
                         }) : null
-                    } 
+                    }
                     <button className="btn btn-primary login-form-button" 
                     onClick={ findRecipes }>
                         Find Recipes
                     </button>
+                </div>
+
+                {
+                    recipes.length !== 0 && <h5 style={{textAlign: "left", paddingLeft: "1.25rem"}}>Results</h5>
+                }
+
+                {
+                    recipes.length !== 0 && <hr/>
+                }
+                
+                <div className="allCards"> 
+                {
+                    recipes && recipes.map((recipe) => {
+                        return (
+                            <Card updateComp={() => null}
+                                userdata={props.userdata}
+                                recipeuser={null}
+                                recipe={recipe.id}
+                                userrecipeid={-1}
+                                key={key++} 
+                                title={recipe.title}
+                                subtitle={null}
+                                caption={null}
+                                image={recipe.image}
+                            />
+                        )
+                    })
+                }
                 </div>
             </div>
         </div>
