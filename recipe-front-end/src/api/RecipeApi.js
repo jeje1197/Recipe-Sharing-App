@@ -95,8 +95,22 @@ const RecipeApi = {
         console.log("Making Recipe");
     },
     
-    deleteRecipe: () => {
-        console.log("Deleting Recipe");
+    deleteRecipe: async (userRecipeId, updateComponent) => {
+        const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/" + userRecipeId, {
+            method: "DELETE",
+            mode: "cors",
+        })
+            .then( (result) => {
+                return result.json()
+            })
+            .then( (data) => {
+                return data
+            })
+            .catch( (error) => { 
+                console.log(error) 
+            });
+            console.log(recipes)
+        updateComponent(true)
     },
     
     getIngredientsSpoonacular: (setIngredients) => {

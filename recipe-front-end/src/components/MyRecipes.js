@@ -5,6 +5,7 @@ import RecipeApi from '../api/RecipeApi';
 
 function MyRecipes(props) {
     const [userRecipes, setUserRecipes] = useState([]);
+    const [updateComponent, setUpdateComponent] = useState(false);
     let key = 0;
 
     useEffect(() => {
@@ -16,7 +17,7 @@ function MyRecipes(props) {
             .catch((error) => {
                 console.log(error);
             })
-    }, [props.userdata])
+    }, [props.userdata, updateComponent])
     
     return (
         <div className="MyRecipes">
@@ -27,9 +28,11 @@ function MyRecipes(props) {
                 {
                     userRecipes && userRecipes.map((userRecipe) => {
                         return (
-                            <Card userdata={props.userdata}
+                            <Card updateComp={setUpdateComponent}
+                                userdata={props.userdata}
                                 recipeuser={userRecipe.user.username}
                                 recipe={userRecipe.recipe.id}
+                                userrecipeid={userRecipe.id}
                                 key={key++} 
                                 title={userRecipe.recipe.name}
                                 subtitle={userRecipe.user.username}

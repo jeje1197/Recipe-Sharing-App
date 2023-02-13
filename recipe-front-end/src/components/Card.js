@@ -25,7 +25,7 @@ function Card(props) {
                 </h6>
                 <p className="card-text">{props.caption}</p>
                 { isCreator() ? (
-                        <button className="btn btn-primary" onClick={() => { RecipeApi.deleteRecipe(userData, props.recipe) }}>Delete</button>
+                        <button className="btn btn-primary" onClick={() => { RecipeApi.deleteRecipe(props.userrecipeid, props.updateComp) }}>Delete</button>
                     ) : (
                         <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(userData, props.recipe) }}>Save</button>
                     )
