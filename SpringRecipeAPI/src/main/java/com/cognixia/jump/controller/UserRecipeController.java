@@ -51,7 +51,8 @@ public class UserRecipeController {
             throw new ResourceNotFoundException("User", userId);
         }
         else if (recipeFound.isEmpty()) {
-            throw new ResourceNotFoundException("Recipe", recipeId);
+            /*throw new ResourceNotFoundException("Recipe", recipeId);*/
+            /*recipeRepo.save()*/
         }
 
         Optional<UserRecipe> userRecipe = repo.userRecipeExists(userId, recipeId);
@@ -66,13 +67,13 @@ public class UserRecipeController {
         return ResponseEntity.status(201).body(createdUserRecipe);
     }
     
-    @GetMapping("/userrecipe/{userId}")
-    public List<Recipe> getAllRecipes(@PathVariable int userId) {
-    	return repo.getRecipesFromUserId(userId + "");
+    @GetMapping("/userRecipeByUserId/{userId}")
+    public List<UserRecipe> getAllRecipes(@PathVariable int userId) {
+    	return repo.findByUserId(userId+"");
     }
 
-    @GetMapping("/userrecipe/{recipeId}")
-    public List<User> getAllUsers(@PathVariable int recipeId) {
+    @GetMapping("/userRecipeByRecipeId/{recipeId}")
+    public List<UserRecipe> getAllUsers(@PathVariable int recipeId) {
         return repo.getUsersFromRecipeId(recipeId + "");
     }
     
