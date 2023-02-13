@@ -42,6 +42,8 @@ public class UserRecipeController {
     	
     	return ResponseEntity.status(201).body(created);
     }*/
+
+    /*Get user recipe by Pathparams: UserId and recipeId*/
     @PostMapping("/userrecipe")
     public ResponseEntity<?> saveRecipeToUser(@PathParam(value="userId") int userId, @PathParam(value="recipeId") int recipeId) throws ResourceNotFoundException{
         Optional <Recipe> recipeFound= recipeRepo.findById(recipeId);
@@ -51,7 +53,7 @@ public class UserRecipeController {
             throw new ResourceNotFoundException("User", userId);
         }
         else if (recipeFound.isEmpty()) {
-            /*throw new ResourceNotFoundException("Recipe", recipeId);*/
+            throw new ResourceNotFoundException("Recipe", recipeId);
             /*recipeRepo.save()*/
         }
 
@@ -66,8 +68,23 @@ public class UserRecipeController {
 
         return ResponseEntity.status(201).body(createdUserRecipe);
     }
-    
-    @GetMapping("/userRecipeByUserId/{userId}")
+    /*Add new recipe to recipe table and create the userRecipe relationship*/
+    @PostMapping("/userrecipe/newrecipe")
+    public ResponseEntity<?> saveRecipeToUser(@RequestBody Recipe recipe, @PathParam(value="userId") int userId) throws ResourceNotFoundException{
+        Optional <Recipe> recipeFound= recipeRepo.getRecipeByName(recipe.getName());
+        Recipe newRecipe;
+        newRecipe = recipeFound.orElseGet(() -> recipeRepo.save(recipe));
+        Optional <User> userFound=userRepo.findById(userId);
+        if(userFound.isEmpty()) {
+            throw new ResourceNotFoundException("User", userId);
+        }
+        UserRecipe newUserRecipe=new UserRecipe(0,userFound.get(),newRecipe," "," ");
+        UserRecipe createdUserRecipe= repo.save(newUserRecipe);
+        return ResponseEntity.status(201).body(createdUserRecipe);
+    }
+
+
+        @GetMapping("/userRecipeByUserId/{userId}")
     public List<UserRecipe> getAllRecipes(@PathVariable int userId) {
     	return repo.findByUserId(userId+"");
     }
