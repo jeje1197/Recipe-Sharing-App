@@ -1,17 +1,16 @@
 package com.cognixia.jump.service;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
+import com.cognixia.jump.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.cognixia.jump.model.User;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 //UserDetails class -> used by spring security to find all of the necessary information for authorization & authentication
-public class MyUserDetails implements UserDetails {
+public class MyUserDetails implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
 
@@ -20,16 +19,16 @@ public class MyUserDetails implements UserDetails {
 	private boolean enabled;
 	private List<GrantedAuthority> authorities;
 
-	// when a new object created, will extract only the RELEVANT info from our User
-	// object
+	// when a new object created, will extract only the RELEVANT info from our User object
 	public MyUserDetails(User user) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
+		this.enabled = user.isEnabled();
 
-		// Granted Authority -> permissions/grants a user has access to retrieve or
-		// operations to perform
+		// Granted Authority -> permissions/grants a user has access to retrieve or operations to perform
 		// GA is given based on the user's roles
-		this.authorities = Arrays.asList(new SimpleGrantedAuthority(user.getRole().name()));
+		this.authorities = Arrays.asList( new SimpleGrantedAuthority( user.getRole().name() ) );
+
 
 	}
 

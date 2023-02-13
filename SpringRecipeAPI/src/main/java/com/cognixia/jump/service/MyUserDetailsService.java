@@ -1,21 +1,19 @@
 package com.cognixia.jump.service;
-import java.util.Optional;
 
+import com.cognixia.jump.model.User;
+import com.cognixia.jump.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.cognixia.jump.model.User;
-
-import com.cognixia.jump.repository.MyUserDetailsRepo;
+import java.util.Optional;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-
-	MyUserDetailsRepo repo;
+	UserRepository repo;
 
 
 	
@@ -26,10 +24,9 @@ public class MyUserDetailsService implements UserDetailsService {
 		
 	
 	@Override
-
 	public MyUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Optional<User> userFound = repo.findByUsername(username);
+		Optional<User> userFound = repo.getUserByUsername(username);
 
 		
 		// if username doesn't exist in the table, throw an exception

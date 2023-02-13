@@ -1,15 +1,13 @@
 package com.cognixia.jump.repository;
 
-import java.util.Optional;
-
+import com.cognixia.jump.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
-import com.cognixia.jump.model.User;
+import java.util.Optional;
 
 @Repository
-public interface MyUserDetailsRepo extends JpaRepository<UserDetails, Integer>{
+public interface MyUserDetailsRepo extends JpaRepository<User, Integer>{
 
 	Optional<User> findByUsername(String username);
 
