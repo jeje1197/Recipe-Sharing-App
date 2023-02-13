@@ -21,7 +21,7 @@ public class UserService {
         Optional<User> found=repo.findById(id);
 
         if(found.isEmpty()){
-            throw new ResourceNotFoundException("User",id);
+            throw new ResourceNotFoundException("User");
         }
         return found.get();
     }
@@ -41,7 +41,7 @@ public class UserService {
 
             return true;
         }
-        throw new ResourceNotFoundException("User",id);
+        throw new ResourceNotFoundException("User");
     }
 
 }

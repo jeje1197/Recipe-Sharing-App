@@ -40,10 +40,10 @@ public class UserRecipeController {
         Optional <User> userFound=userRepo.findById(userId);
 
         if(userFound.isEmpty()) {
-            throw new ResourceNotFoundException("User", userId);
+            throw new ResourceNotFoundException("User");
         }
         else if (recipeFound.isEmpty()) {
-            throw new ResourceNotFoundException("Recipe", recipeId);
+            throw new ResourceNotFoundException("Recipe");
             /*recipeRepo.save()*/
         }
 
@@ -66,7 +66,7 @@ public class UserRecipeController {
         newRecipe = recipeFound.orElseGet(() -> recipeRepo.save(recipe));
         Optional <User> userFound=userRepo.findById(userId);
         if(userFound.isEmpty()) {
-            throw new ResourceNotFoundException("User", userId);
+            throw new ResourceNotFoundException("User");
         }
         UserRecipe newUserRecipe=new UserRecipe(0,userFound.get(),newRecipe," "," ");
         UserRecipe createdUserRecipe= repo.save(newUserRecipe);
