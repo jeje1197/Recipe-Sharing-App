@@ -4,6 +4,12 @@ import React, { useState } from 'react';
 
 function Card(props) {
     const [displayModal, setDisplayModal] = useState(false);
+    const userData = props.userdata;
+    console.log(userData)
+    console.log(props.recipeuser)
+    const isCreator = () => {
+        return userData.username === props.recipeuser
+    } 
 
     return (
         <div className="card" style={{width: "18rem"}}>
@@ -18,11 +24,17 @@ function Card(props) {
                     {props.subtitle}
                 </h6>
                 <p className="card-text">{props.caption}</p>
-                <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(props.userdata, props.recipe) }}>Save</button>
+                { isCreator() ? (
+                        <button className="btn btn-primary" onClick={() => { RecipeApi.deleteRecipe(userData, props.recipe) }}>Delete</button>
+                    ) : (
+                        <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(userData, props.recipe) }}>Save</button>
+                    )
+                }
+                
                 <button className="btn btn-primary" onClick={() => { RecipeApi.makeRecipe(); setDisplayModal(true)}}>Make</button>
             </div>
             
-            <RecipeModal image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
+            <RecipeModal userdata={props.userdata} recipe={props.recipe} image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
         </div>
     )
 }

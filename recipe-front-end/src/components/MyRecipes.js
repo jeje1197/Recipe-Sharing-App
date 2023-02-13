@@ -28,10 +28,11 @@ function MyRecipes(props) {
                     userRecipes && userRecipes.map((userRecipe) => {
                         return (
                             <Card userdata={props.userdata}
+                                recipeuser={userRecipe.user.username}
                                 recipe={userRecipe.recipe.id}
                                 key={key++} 
                                 title={userRecipe.recipe.name}
-                                subtitle={userRecipe.user.username} 
+                                subtitle={userRecipe.user.username}
                                 caption={userRecipe.caption}
                                 image={userRecipe.userPhoto.trim() ? userRecipe.userPhoto : userRecipe.recipe.imageLink}
                             />
