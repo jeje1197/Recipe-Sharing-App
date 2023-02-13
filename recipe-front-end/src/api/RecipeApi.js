@@ -15,17 +15,60 @@ const RecipeApi = {
             .catch( (error) => { 
                 console.log(error) 
             });
-
         return users;
     }, 
 
-    loginAsUser: (userData) => {
-        const users = RecipeApi.getAllUsers();
-        console.log(users)
-        
+    loginAsUser: async (userData) => {
+        // Credential validation should occur in the backend
+        const users = await RecipeApi.getAllUsers()
+        for(let i = 0; i < users.length; i++) {
+            const user = users[i]
+            if (userData.username === user.username && 
+                userData.password === user.password) {
+                console.log("Logged in")
+                return true
+            }
+        }
+        return false
     },
 
-    saveRecipe: () => {
+    loadAllUserRecipes: async () => {
+        const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe", {
+            method: "GET",
+            mode: "cors",
+        })
+            .then( (result) => {
+                return result.json()
+            })
+            .then( (data) => {
+                return data
+            })
+            .catch( (error) => { 
+                console.log(error) 
+            });
+            console.log(recipes)
+        return recipes;
+    },
+
+    loadRecipes: async () => {
+        const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe", {
+            method: "GET",
+            mode: "cors",
+        })
+            .then( (result) => {
+                return result.json()
+            })
+            .then( (data) => {
+                return data
+            })
+            .catch( (error) => { 
+                console.log(error) 
+            });
+            console.log(recipes)
+        return recipes;
+    },
+
+    saveRecipe: async (userData, recipeId) => {
         console.log("Saving Recipe");
     },
     

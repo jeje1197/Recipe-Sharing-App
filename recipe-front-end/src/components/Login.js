@@ -3,12 +3,16 @@ import './Login.css'
 
 function Login(props) {
 
-    const sendLoginInfo = (username, password) => {
+    const sendLoginInfo = async (username, password) => {
         // Sends Credentials to Backend for Validation
-        // console.log(username, password)
-        RecipeApi.loginAsUser({
+        const userData = await RecipeApi.loginAsUser({
             username, password
         })
+
+        if (!userData) {
+            alert("Invalid username or password.")
+            return
+        }
         props.setLoggedIn(true)
     }
 

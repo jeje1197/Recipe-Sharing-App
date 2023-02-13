@@ -1,6 +1,9 @@
 .allCards {
     display: flex;
     flex-flow: wrap;
+    justify-content: space-evenly;
+    justify-items: left;
+    /* align-items: ; */
     padding: 1rem;
 }
 
