@@ -2,11 +2,18 @@ package com.cognixia.jump.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+
+import com.cognixia.jump.model.User.Role;
+
 import java.io.Serializable;
 
 @Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static enum Role {
+		ROLE_USER
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +29,10 @@ public class User implements Serializable {
 	
 	@Column
 	private String profilePhoto;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private Role role;
 
 	public User(Integer id,String username, String password, String profilePhoto){
 		this.id=id;
@@ -33,6 +44,14 @@ public class User implements Serializable {
 		
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
