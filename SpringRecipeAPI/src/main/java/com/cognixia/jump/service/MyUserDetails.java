@@ -11,22 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.cognixia.jump.model.User;
 
 //UserDetails class -> used by spring security to find all of the necessary information for authorization & authentication
-<<<<<<< HEAD
 public class MyUserDetails implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 
-=======
-public class MyUserDetails implements UserDetails{
-
-	private static final long serialVersionUID = 1L;
-	
->>>>>>> 4ae68f12ddab4a71678a86bcc51043cc7bb20cd0
 	private String username;
 	private String password;
 	private boolean enabled;
 	private List<GrantedAuthority> authorities;
-<<<<<<< HEAD
 
 	// when a new object created, will extract only the RELEVANT info from our User
 	// object
@@ -41,22 +33,6 @@ public class MyUserDetails implements UserDetails{
 
 	}
 
-=======
-	
-	// when a new object created, will extract only the RELEVANT info from our User object
-	public MyUserDetails(User user) {
-		this.username = user.getUsername();
-		this.password = user.getPassword();
-//		this.enabled = user.isEnabled();
-		
-		// Granted Authority -> permissions/grants a user has access to retrieve or operations to perform
-		// GA is given based on the user's roles
-//		this.authorities = Arrays.asList( new SimpleGrantedAuthority( user.getRole().name() ) );
-
-		
-	}
-	
->>>>>>> 4ae68f12ddab4a71678a86bcc51043cc7bb20cd0
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
@@ -71,21 +47,12 @@ public class MyUserDetails implements UserDetails{
 	public String getUsername() {
 		return username;
 	}
-<<<<<<< HEAD
 
 	// all methods after here:
 	// - DON'T NEED to store this type of info in the user table
 	// - store this info if worthwhile for your security
 	// - have all these methods return true manually if not storing the info
 
-=======
-	
-	// all methods after here:
-	// - DON'T NEED to store this type of info in the user table
-	// - store this info if worthwhile for your security 
-	// - have all these methods return true manually if not storing the info
-	
->>>>>>> 4ae68f12ddab4a71678a86bcc51043cc7bb20cd0
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;

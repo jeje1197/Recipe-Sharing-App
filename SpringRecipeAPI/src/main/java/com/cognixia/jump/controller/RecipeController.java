@@ -33,7 +33,6 @@ public class RecipeController {
         return ResponseEntity.status(200).body(found.get());
     }
 
-<<<<<<< HEAD
     @GetMapping("/recipe/")
     public ResponseEntity<?> getRecipeByName(@PathParam(value="Name") String name) throws ResourceNotFoundException{
         Optional<Recipe> found=repo.getRecipeByName(name);
@@ -44,8 +43,6 @@ public class RecipeController {
 
     }
 
-=======
->>>>>>> 4ae68f12ddab4a71678a86bcc51043cc7bb20cd0
     @PostMapping("/recipe")
     public ResponseEntity<Recipe> saveRecipe(@RequestBody Recipe recipe){
         recipe.setId(-1);
