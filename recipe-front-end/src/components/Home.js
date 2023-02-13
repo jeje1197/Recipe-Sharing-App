@@ -13,6 +13,12 @@ function Home() {
                 <div className="allCards">
                     <Card image={eggs} />
                     <Card image={pbj} />
+                    <Card image={eggs} />
+                    <Card image={pbj} />
+                    <Card image={eggs} />
+                    <Card image={pbj} />
+                    <Card image={eggs} />
+                    <Card image={pbj} />
                 </div>
             </div>
             
