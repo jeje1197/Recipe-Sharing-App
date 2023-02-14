@@ -37,7 +37,7 @@ function Card(props) {
                 <button className="btn btn-primary" onClick={() => { setDisplayModal(true)}}>Make</button>
             </div>
             
-            <RecipeModal userdata={props.userdata} recipeName={props.title} recipeId={props.recipe} image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
+            <RecipeModal userdata={props.userdata} recipeName={props.title} recipeId={props.recipe} image={props.image} recipeSteps={props.recipeSteps} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
         </div>
     )
 }

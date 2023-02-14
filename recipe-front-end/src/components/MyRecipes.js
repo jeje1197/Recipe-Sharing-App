@@ -31,6 +31,7 @@ function MyRecipes(props) {
                                 userdata={props.userdata}
                                 recipeuser={userRecipe.user.username}
                                 recipe={userRecipe.recipe.id}
+                                recipeSteps = {null}
                                 userrecipeid={userRecipe.id}
                                 key={key++} 
                                 title={userRecipe.recipe.name}

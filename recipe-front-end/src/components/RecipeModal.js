@@ -9,11 +9,11 @@ function RecipeModal (props) {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">{props.recipe}</h5>
+              <h5 className="modal-title mx-auto">{props.recipeName}</h5>
             </div>
             <img className="cardImg"src={props.image} alt="Recipe Visual"/>
             <div className="modal-body">
-              <p>Recipe Steps goes here...</p>
+              <p>{props.recipeSteps}</p>
               <input type="file" id="img" name="img" accept="image/*" />
             </div>
             <div className="modal-footer">
