@@ -5,10 +5,6 @@ function Login(props) {
 
     const sendLoginInfo = async (username, password) => {
         // Sends Credentials to Backend for Validation
-        // const userData = await RecipeApi.loginAsUser({
-        //     username, password
-        // })
-
         const userData = await RecipeApi.authenticate(username, password)
 
         if (!userData) {

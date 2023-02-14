@@ -9,14 +9,14 @@ function Home(props) {
     let key = 0;
 
     useEffect(() => {
-        RecipeApi.loadAllUserRecipes()
+        RecipeApi.loadAllUserRecipes(props.userdata)
             .then( (recipes) => {
                 setUserRecipes(recipes);
             })
             .catch((error) => {
                 console.log(error);
             })
-    }, [updateComponent])
+    }, [updateComponent, props.userdata])
     
     return (
         <div className="Home">

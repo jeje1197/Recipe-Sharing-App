@@ -8,10 +8,13 @@ const RecipeApi = {
             password: password
         }
     
-        const jwt = await fetch(RecipeApi.baseURI + "/authenticate", {
+        const authObject = await fetch(RecipeApi.baseURI + "/authenticate", {
             method: "POST",
             mode: "cors",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
             body: JSON.stringify(loginCredentials) 
         })
             .then( (result) => {
@@ -24,8 +27,12 @@ const RecipeApi = {
                 console.log(error) 
             });
 
+        const jwt = authObject.jwt
         const userInfo = await RecipeApi.getUserInfo(username, jwt)
-        // console.log("User Info: ", userInfo)
+
+        if (!jwt) {
+            return null
+        }
         
         const userData = {
             id: userInfo.id,
@@ -40,10 +47,6 @@ const RecipeApi = {
         const users = await fetch(RecipeApi.baseURI + "/api/user", {
             method: "GET",
             mode: "cors",
-            headers: { 
-                "Content-Type": "application/json",
-                "Authorization": jwt 
-            }
         })
             .then( (result) => {
                 return result.json()
@@ -73,21 +76,26 @@ const RecipeApi = {
         return null
     },
 
-    loadAllUserRecipes: async () => {
+    // --
+    loadAllUserRecipes: async (userData) => {
         const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe", {
             method: "GET",
             mode: "cors",
+            headers: {
+                "Authorization": "Bearer " + userData.jwt
+            }
         })
-            .then( (result) => {
-                return result.json()
-            })
-            .then( (data) => {
-                return data
-            })
-            .catch( (error) => { 
-                console.log(error) 
-            });
-            // console.log(recipes)
+        .then( (result) => {
+            console.log(result)
+            return result.json()
+        })
+        .then( (data) => {
+            return data
+        })
+        .catch( (error) => { 
+            console.log(error)
+        })
+        // console.log("Recipes:", recipes)
         return recipes;
     },
 
@@ -95,6 +103,9 @@ const RecipeApi = {
         const recipes = await fetch(RecipeApi.baseURI + "/api/userRecipeByUserId/" + userData.id, {
             method: "GET",
             mode: "cors",
+            headers: {
+                "Authorization": "Bearer " + userData.jwt
+            }
         })
             .then( (result) => {
                 return result.json()
@@ -119,7 +130,10 @@ const RecipeApi = {
         const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/newrecipe?userId=" + userData.id, {
             method: "POST",
             mode: "cors",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + userData.jwt
+            },
             body: JSON.stringify(recipeObject) 
         })
         .then( (result) => {
@@ -133,10 +147,14 @@ const RecipeApi = {
         });
     },
     
-    deleteRecipe: async (userRecipeId, updateComponent) => {
+    deleteRecipe: async (userData, userRecipeId, updateComponent) => {
         const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/" + userRecipeId, {
             method: "DELETE",
             mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + userData.jwt
+            },
         })
             .then( (result) => {
                 return result.json()

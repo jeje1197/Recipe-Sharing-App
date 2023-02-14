@@ -9,7 +9,7 @@ function RecipeModal (props) {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">props.recipe</h5>
+              <h5 className="modal-title">{props.recipe}</h5>
             </div>
             <img className="cardImg"src={props.image} alt="Recipe Visual"/>
             <div className="modal-body">
