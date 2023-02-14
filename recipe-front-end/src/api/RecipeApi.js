@@ -148,7 +148,7 @@ const RecipeApi = {
     },
     
     deleteRecipe: async (userData, userRecipeId, updateComponent) => {
-        console.log(userData, userRecipeId)
+        // console.log(userData, userRecipeId)
         const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/" + userRecipeId, {
             method: "DELETE",
             mode: "cors",
