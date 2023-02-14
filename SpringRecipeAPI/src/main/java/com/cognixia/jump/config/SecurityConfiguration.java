@@ -1,5 +1,6 @@
 package com.cognixia.jump.config;
 
+import com.cognixia.jump.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,15 +9,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import com.cognixia.jump.filter.JwtRequestFilter;
 
 
 @Configuration
@@ -37,8 +35,9 @@ public class SecurityConfiguration {
 		http.csrf().disable()
 			.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/api/user").permitAll() // anyone can create a user
-			.antMatchers("/api/all").permitAll()
+			.antMatchers("/api/user").permitAll()
 			.antMatchers("/authenticate").permitAll()
+
 			.antMatchers("/api-docs/").permitAll()
 			.antMatchers("/swagger-ui.html").permitAll()
 			.antMatchers("/swagger-ui/**").permitAll()
@@ -47,6 +46,8 @@ public class SecurityConfiguration {
 			.antMatchers("/webjars/**").permitAll()
 			.antMatchers("/v3/**").permitAll()
 			.anyRequest().authenticated() // if not specified, all other end points need a user login
+			//.anyRequest().authenticated() // if not specified, all other end points need a user login
+
 			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
