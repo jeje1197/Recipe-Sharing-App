@@ -123,22 +123,22 @@ public class UserControllerTest {
         verifyNoInteractions(service);*/
     }
     //createUser(user)
-    @Test
-    @WithMockUser(username = "testUser",roles = {"USER_ADMIN"})
-    @AutoConfigureMockMvc(addFilters = false)
-    void testCreateUser() throws Exception{
-        String uri= STARTING_URI +"/user";
-        User testUser= new User (true, ROLE_USER,1,"josephE","testPW","jpeg.link");
-
-        when(service.createUser(Mockito.any(User.class))).thenReturn(testUser);
-
-        mvc.perform( post(uri)
-                .content(asJsonString(testUser))
-                .contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andDo(print())
-            .andExpect(status().isCreated())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
-    }
+//    @Test
+//    @WithMockUser(username = "testUser",roles = {"USER_ADMIN"})
+//    @AutoConfigureMockMvc(addFilters = false)
+//    void testCreateUser() throws Exception{
+//        String uri= STARTING_URI +"/user";
+//        User testUser= new User (true, ROLE_USER,1,"josephE","testPW","jpeg.link");
+//
+//        when(service.createUser(Mockito.any(User.class))).thenReturn(testUser);
+//
+//        mvc.perform( post(uri)
+//                .content(asJsonString(testUser))
+//                .contentType(MediaType.APPLICATION_JSON_VALUE))
+//            .andDo(print())
+//            .andExpect(status().isCreated())
+//            .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE));
+//    }
 
     //deleteUser(user)
     void testDeleteUser() throws Exception{

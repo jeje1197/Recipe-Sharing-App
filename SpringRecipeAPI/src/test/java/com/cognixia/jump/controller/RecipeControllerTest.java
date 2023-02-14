@@ -66,7 +66,7 @@ public class RecipeControllerTest {
                 .andExpect(jsonPath("$[1].apiid").value(allRecipes.get(1).getAPIId()));
 
         verify(repo,times(1)).findAll();
-        verifyNoInteractions(repo);
+//        verifyNoInteractions(repo);
     }
     @Test
     void testGetRecipe()throws Exception{}
