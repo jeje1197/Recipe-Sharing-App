@@ -16,7 +16,7 @@ public interface UserRecipeRepository extends JpaRepository<UserRecipe,Integer> 
 	@Query(value="select * from user_recipe u where u.recipe_Id=?1",nativeQuery = true)
     public List<UserRecipe> getUsersFromRecipeId(String recipeId);
 
-    @Query(value="select id from user_recipe as ur where ur.user_id=?1 and ur.recipe_id=?2",nativeQuery = true)
+    @Query(value="select * from user_recipe ur where ur.user_id=?1 and ur.recipe_id=?2",nativeQuery = true)
     public Optional<UserRecipe> userRecipeExists(int userId, int recipeId);
 
 }

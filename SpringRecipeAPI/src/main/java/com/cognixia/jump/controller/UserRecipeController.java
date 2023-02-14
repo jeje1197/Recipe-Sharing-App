@@ -61,16 +61,27 @@ public class UserRecipeController {
     /*Add new recipe to recipe table and create the userRecipe relationship*/
     @PostMapping("/userrecipe/newrecipe")
     public ResponseEntity<?> saveRecipeToUser(@RequestBody Recipe recipe, @PathParam(value="userId") int userId) throws ResourceNotFoundException{
-        Optional <Recipe> recipeFound= recipeRepo.getRecipeByName(recipe.getName());
+        Optional <Recipe> recipeFound= recipeRepo.getRecipeByName(recipe.getName()); //queries for recipe in db
         Recipe newRecipe;
-        newRecipe = recipeFound.orElseGet(() -> recipeRepo.save(recipe));
-        Optional <User> userFound=userRepo.findById(userId);
+        boolean userRecipeExists=false;
+        if(recipeFound.isEmpty()) newRecipe = recipeRepo.save(recipe);//checks if response confirms recipe exists in db
+        else{newRecipe=recipeFound.get();
+        userRecipeExists=true;}
+
+        Optional <User> userFound=userRepo.findById(userId);//Check if user is in db
         if(userFound.isEmpty()) {
             throw new ResourceNotFoundException("User");
         }
+
+        if(userRecipeExists&&repo.userRecipeExists(userId,newRecipe.getId()).isPresent()){
+            return ResponseEntity.status(200).body("Recipe already added!");//if relatiohsip already exists, return 200 status?
+        }
+        //newRecipe = recipeFound.orElseGet(() -> recipeRepo.save(recipe));//Makes sure to prevent duplicate recipes saved.
+
+
         UserRecipe newUserRecipe=new UserRecipe(0,userFound.get(),newRecipe," "," ");
         UserRecipe createdUserRecipe= repo.save(newUserRecipe);
-        return ResponseEntity.status(201).body(createdUserRecipe);
+        return ResponseEntity.status(201).body(createdUserRecipe); //Else add new relationship to db and return 201 status.
     }
 
 
