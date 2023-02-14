@@ -1,5 +1,6 @@
 const RecipeApi = {
-    baseURI: "http://localhost:8080",
+    // baseURI: "http://localhost:8080",
+    baseURI: "http://35.175.214.61:8080",
 
     // Login Validation
     authenticate: async (username, password) => {
@@ -28,11 +29,11 @@ const RecipeApi = {
             });
 
         const jwt = authObject.jwt
-        const userInfo = await RecipeApi.getUserInfo(username, jwt)
-
         if (!jwt) {
             return null
         }
+
+        const userInfo = await RecipeApi.getUserInfo(username, jwt)
         
         const userData = {
             id: userInfo.id,
