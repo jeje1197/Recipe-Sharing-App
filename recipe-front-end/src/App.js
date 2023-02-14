@@ -5,20 +5,23 @@ import Login from './components/Login';
 import Home from './components/Home';
 import AddRecipes from './components/AddRecipes';
 import MyRecipes from './components/MyRecipes';
+import { useState } from 'react';
 
 function App() {
-  let loggedIn = true
+  const [userData, setUserData] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
-    <div className="App">
+    <div className="App recipe-flexbox-col">
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+
       { loggedIn ? 
-          <div>
-            <Header/>
             <Routes>
-              <Route path="/" element={ <Home/> } exact />
-              <Route path="/add" element={ <AddRecipes/> } />
-              <Route path="/myrecipes" element={ <MyRecipes/> } />
+              <Route path="/" element={ <Home userdata={userData}/> } exact />
+              <Route path="/add" element={ <AddRecipes userdata={userData}/> } />
+              <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/> } />
             </Routes>
-          </div> : <Login/>
+          : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
       }
     </div>
   );

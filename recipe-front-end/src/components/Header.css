@@ -1,0 +1,31 @@
+.recipe-app-header {
+    width: 100%;
+    background-color: rgb(211, 205, 205);
+    background-image: url("../images/foodbanner2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: soft-light;
+
+    box-shadow: 0 0.125rem 0.375rem lightblue;
+}
+
+.recipe-app-header-text {
+    color:black;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.recipe-app-navbar {
+    color:black;
+    background-color: #fff;
+    /* background-color: rgb(158, 99, 77); */
+}
+
+.recipe-app-navbar-text1 {
+    font-weight: 400;
+}
+
+.recipe-app-navbar-text2 {
+    font-weight: 400;
+}

@@ -2,3 +2,4 @@
 /application-prod.properties
 /application-publicRDS.properties
 /application.properties
+/application-cloud-dev.properties
