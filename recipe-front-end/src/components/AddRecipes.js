@@ -4,19 +4,35 @@ import RecipeApi from '../api/RecipeApi';
 import Card from './Card';
 
 function AddRecipes(props) {
-    const [ingredients, setIngredients] = useState([]);
+    // const [ingredients, setIngredients] = useState([]);
+
+    const ingredients = []
+    const ingredientList = [
+        "chicken", "turkey", "fish",
+        "ketchup", "mayonnaise", "mustard",
+        "apple", "banana", "orange", "cherry",
+        "lettuce", "onion", "greens", "tomato",
+        "salt", "pepper", "vinegar", "cinnamon"
+    ]
+
+    for (let ingredient of ingredientList) {
+        ingredients.push({
+            name: ingredient
+        })
+    }
+
+    // useEffect( () => {
+    //     RecipeApi.getIngredientsSpoonacular()
+    //         .then((ingredients) => {
+    //             setIngredients(ingredients);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         })
+    // }, [])
+
     const [recipes, setRecipes] = useState([])
     let key = 0;
-
-    useEffect( () => {
-        RecipeApi.getIngredientsSpoonacular()
-            .then((ingredients) => {
-                setIngredients(ingredients);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }, [])
 
     const getCheckedIngredients = () => {
         const ingredientList = document.getElementsByClassName("ingredient");
@@ -35,7 +51,6 @@ function AddRecipes(props) {
     const findRecipes = async() => {
         // This finds a list of recipes from the ingredients selected
         const selectedIngredients = getCheckedIngredients();
-        // console.log(selectedIngredients);
 
         RecipeApi.getRecipesFromIngredients(selectedIngredients)
             .then( (recipes) => {
