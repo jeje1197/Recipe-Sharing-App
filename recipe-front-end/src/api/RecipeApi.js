@@ -110,7 +110,7 @@ const RecipeApi = {
             .catch( (error) => { 
                 console.log(error) 
             });
-            console.log(recipes)
+            // console.log(recipes)
         updateComponent(true)
     },
 
@@ -158,10 +158,6 @@ const RecipeApi = {
             });
         // console.log(recipes)
         return recipes
-    },
-
-    getRecipesByUser: (user) => {
-        
     }
 }
 
