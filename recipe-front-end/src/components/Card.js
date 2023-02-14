@@ -28,14 +28,16 @@ function Card(props) {
                 { isCreator() ? (
                         <button className="btn btn-primary" onClick={() => { RecipeApi.deleteRecipe(props.userrecipeid, props.updateComp) }}>Delete</button>
                     ) : (
-                        <button className="btn btn-primary" onClick={() => { RecipeApi.saveRecipe(props.userdata, props.recipe) }}>Save</button>
+                        <button className="btn btn-primary" onClick={() => {
+                            RecipeApi.saveRecipe(props.userdata, props.title, props.recipe, props.image) 
+                        }}>Save</button>
                     )
                 }
                 
                 <button className="btn btn-primary" onClick={() => { setDisplayModal(true)}}>Make</button>
             </div>
             
-            <RecipeModal userdata={props.userdata} recipe={props.recipe} image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
+            <RecipeModal userdata={props.userdata} recipeName={props.title} recipeId={props.recipe} image={props.image} displayModal = {displayModal} setDisplayModal = {setDisplayModal} />
         </div>
     )
 }

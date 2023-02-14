@@ -72,12 +72,18 @@ const RecipeApi = {
         return recipes;
     },
 
-    saveRecipe: async (userData, recipeId) => {
-        // console.log(userData)
-        const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/?userId=" + userData.id +
-                        "&recipeId=" + recipeId, {
+    saveRecipe: async (userData, recipeName, recipeApiId, recipeImage) => {
+        const recipeObject = {
+            apiid: String(recipeApiId),
+            imageLink: recipeImage,
+            name: recipeName
+        }
+
+        const recipes = await fetch(RecipeApi.baseURI + "/api/userrecipe/newrecipe?userId=" + userData.id, {
             method: "POST",
             mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(recipeObject) 
         })
         .then( (result) => {
             return result.json()
@@ -88,11 +94,6 @@ const RecipeApi = {
         .catch( (error) => { 
             console.log(error) 
         });
-        console.log(recipes)
-    },
-    
-    makeRecipe: () => {
-        console.log("Making Recipe");
     },
     
     deleteRecipe: async (userRecipeId, updateComponent) => {
@@ -113,7 +114,7 @@ const RecipeApi = {
         updateComponent(true)
     },
 
-    spoonacularAPIKey: "30eaf136e2f244cc93220c1b6bc3c45a",
+    spoonacularAPIKey: "fa4af7aa89eb442db0aca40ce41cdd1f",
     
     getIngredientsSpoonacular: async (setIngredients) => {
         const URL = "https://api.spoonacular.com/food/ingredients/search?query=banana&" + 

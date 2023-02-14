@@ -18,7 +18,7 @@ function RecipeModal (props) {
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary" onClick={() => {
-                RecipeApi.saveRecipe(props.userdata, props.recipe);
+                RecipeApi.saveRecipe(props.userdata, props.recipeName, props.recipeId, props.image);
                 props.setDisplayModal(false);
               }}>Save changes</button>
               <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => {props.setDisplayModal(false)}}>Close</button>
