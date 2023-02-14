@@ -26,9 +26,12 @@ public class Recipe implements Serializable {
 
     }
 
-    /*public Recipe() {
-
-    }*/
+    public Recipe(Integer id, String name,String imageLink,String APIId) {
+        this.id=id;
+        this.Name=name;
+        this.imageLink=imageLink;
+        this.APIId=APIId;
+    }
 
     public Integer getId() {
         return id;
