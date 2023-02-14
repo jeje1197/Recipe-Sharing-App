@@ -87,7 +87,6 @@ const RecipeApi = {
             }
         })
         .then( (result) => {
-            console.log(result)
             return result.json()
         })
         .then( (data) => {
