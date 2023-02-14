@@ -2,10 +2,48 @@ const RecipeApi = {
     baseURI: "http://localhost:8080",
 
     // Login Validation
-    getAllUsers: async () => {
+    authenticate: async (username, password) => {
+        const loginCredentials = {
+            username: username,
+            password: password
+        }
+    
+        const jwt = await fetch(RecipeApi.baseURI + "/authenticate", {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginCredentials) 
+        })
+            .then( (result) => {
+                return result.json()
+            })
+            .then( (data) => {
+                return data
+            })
+            .catch( (error) => { 
+                console.log(error) 
+            });
+
+        const userInfo = await RecipeApi.getUserInfo(username, jwt)
+        // console.log("User Info: ", userInfo)
+        
+        const userData = {
+            id: userInfo.id,
+            username: userInfo.username,
+            jwt: jwt
+        }
+
+        return userData
+    },
+
+    getAllUsers: async (jwt) => {
         const users = await fetch(RecipeApi.baseURI + "/api/user", {
             method: "GET",
             mode: "cors",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": jwt 
+            }
         })
             .then( (result) => {
                 return result.json()
@@ -19,21 +57,20 @@ const RecipeApi = {
         return users;
     }, 
 
-    loginAsUser: async (userData) => {
+    getUserInfo: async (username, jwt) => {
         // Credential validation should occur in the backend
-        const users = await RecipeApi.getAllUsers()
+        const users = await RecipeApi.getAllUsers(jwt)
         if (!users) {
             return false;
         }
+
         for(let i = 0; i < users.length; i++) {
             const user = users[i]
-            if (userData.username === user.username && 
-                userData.password === user.password) {
-                console.log("Logged in")
+            if (username === user.username) {
                 return user
             }
         }
-        return false
+        return null
     },
 
     loadAllUserRecipes: async () => {
