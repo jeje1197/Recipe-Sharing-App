@@ -6,6 +6,7 @@ import Home from './components/Home';
 import AddRecipes from './components/AddRecipes';
 import MyRecipes from './components/MyRecipes';
 import { useState } from 'react';
+import RecipeDetails, { loader as detailsLoader } from './components/RecipeDetails';
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -19,7 +20,9 @@ function App() {
             <Routes>
               <Route path="/" element={ <Home userdata={userData}/> } exact />
               <Route path="/add" element={ <AddRecipes userdata={userData}/> } />
-              <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/> } />
+              <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/>}> 
+                <Route path=":recipeId" element={<RecipeDetails />} loader={detailsLoader}/>
+              </Route>
             </Routes>
           : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
       }

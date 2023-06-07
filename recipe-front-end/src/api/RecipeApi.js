@@ -1,6 +1,6 @@
 const RecipeApi = {
-    // baseURI: "http://localhost:8080",
-    baseURI: "http://35.175.214.61:8080",
+    baseURI: "http://localhost:8080",
+    // baseURI: "http://35.175.214.61:8080",
 
     // Login Validation
     authenticate: async (username, password) => {
@@ -216,6 +216,20 @@ const RecipeApi = {
             });
         // console.log(recipes)
         return recipes
+    },
+
+    getAnalyzedRecipe: async (recipeApiId) => {
+        const query = "https://api.spoonacular.com/recipes/" + recipeApiId + "/analyzedInstructions?apiKey=" + RecipeApi.spoonacularAPIKey;
+        const recipe = await fetch(query)
+            .then( (result) => {
+                return result.json();
+            })
+            .then( (data) => {
+                return data;
+            })
+            .catch( (error) => {
+                console.log(error);
+            })
     }
 }
 

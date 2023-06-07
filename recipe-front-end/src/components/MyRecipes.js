@@ -2,6 +2,7 @@ import '../components/Home.css';
 import Card from './Card';
 import { useEffect, useState } from 'react';
 import RecipeApi from '../api/RecipeApi';
+import { Outlet } from "react-router-dom";
 
 function MyRecipes(props) {
     const [userRecipes, setUserRecipes] = useState([]);
@@ -44,6 +45,7 @@ function MyRecipes(props) {
                 }
                 </div>
             </div>
+            <Outlet />
         </div>
     )
 }
