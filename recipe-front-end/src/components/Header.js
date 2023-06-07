@@ -24,6 +24,7 @@ const Header = (props) => {
 
                                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                     <div className="navbar-nav">
+
                                         <Link className="nav-link recipe-app-navbar-text2" to="/add">Add Recipe</Link>
 
                                         <Link className="nav-link recipe-app-navbar-text2" to="/myrecipes">My Recipes</Link>

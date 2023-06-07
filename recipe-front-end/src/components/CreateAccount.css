@@ -1,4 +1,4 @@
-.login-div {
+.create-div {
     height: 100%;
     display: flex;
     align-items: center;
@@ -6,33 +6,32 @@
     flex-grow: 1;
 }
 
-.login-card {
+.create-card {
     max-width: 85%; 
-    width: 25rem;
-    height: 25rem;
+    width: auto;
+    height: auto;
     border-radius: 10px;
 }
 
-.login-header {
-    font-size: 3rem;
+.create-header {
+    font-size: 2rem;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid silver;
 }
 
-.login-form-group {
+.create-form-group {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-.login-form-button {
+.create-form-button {
     margin-top: 0rem;
 }
 
 .link-primary {
     cursor: pointer;
-    text-decoration: none;
 }
 
 .link-primary:hover {

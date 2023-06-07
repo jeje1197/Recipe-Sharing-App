@@ -1,6 +1,6 @@
 const RecipeApi = {
-    // baseURI: "http://localhost:8080",
-    baseURI: "http://35.175.214.61:8080",
+    baseURI: "http://localhost:8080",
+    // baseURI: "http://35.175.214.61:8080",
 
     // Login Validation
     authenticate: async (username, password) => {
@@ -42,6 +42,27 @@ const RecipeApi = {
         }
 
         return userData
+    },
+
+    addUser: async(userdata) => {
+        const user = await fetch(RecipeApi.baseURI + "/api/user", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(userdata)
+        })
+        .then( (result) => {
+            return result.json()
+        })
+        .then( (data) => {
+            return data
+        })
+        .catch( (error) => { 
+            console.log(error) 
+        });
     },
 
     getAllUsers: async (jwt) => {

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Home from './components/Home';
 import AddRecipes from './components/AddRecipes';
+import CreateAccount from './components/CreateAccount';
 import MyRecipes from './components/MyRecipes';
 import { useState } from 'react';
 
@@ -21,10 +22,13 @@ function App() {
               <Route path="/add" element={ <AddRecipes userdata={userData}/> } />
               <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/> } />
             </Routes>
-          : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
+          : 
+          <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
       }
     </div>
   );
 }
 
 export default App;
+
+
