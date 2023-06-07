@@ -1,0 +1,39 @@
+.create-div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.create-card {
+    max-width: 85%; 
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+.create-header {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid silver;
+}
+
+.create-form-group {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.create-form-button {
+    margin-top: 0rem;
+}
+
+.link-primary {
+    cursor: pointer;
+}
+
+.link-primary:hover {
+    text-decoration: underline;
+}

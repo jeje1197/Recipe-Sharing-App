@@ -1,0 +1,17 @@
+.ingredient-list {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* flex */
+    /* flex-flow: wrap; */
+    justify-content: space-evenly;
+    justify-items: left;
+
+
+    padding-left: 1.25rem;
+    /* justify-content: space-around; */
+}
+
+.ingredient {
+    
+}
