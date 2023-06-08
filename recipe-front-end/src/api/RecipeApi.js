@@ -220,7 +220,7 @@ const RecipeApi = {
 
     getAnalyzedRecipe: async (recipeApiId) => {
         const query = "https://api.spoonacular.com/recipes/" + recipeApiId + "/analyzedInstructions?apiKey=" + RecipeApi.spoonacularAPIKey;
-        const recipe = await fetch(query)
+        const details = await fetch(query)
             .then( (result) => {
                 return result.json();
             })
@@ -229,7 +229,9 @@ const RecipeApi = {
             })
             .catch( (error) => {
                 console.log(error);
-            })
+            });
+
+            return details;
     }
 }
 

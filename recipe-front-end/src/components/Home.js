@@ -31,7 +31,7 @@ function Home(props) {
                                 <Card updateComp={setUpdateComponent}
                                     userdata={props.userdata}
                                     recipeuser={userRecipe.user.username}
-                                    recipeSteps = {null}
+                                    recipeApiId={userRecipe.recipe.apiid}
                                     userrecipeid={userRecipe.id}
                                     recipe={userRecipe.recipe.id}
                                     key={key++} 

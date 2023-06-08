@@ -1,4 +1,5 @@
 import RecipeApi from "../api/RecipeApi";
+import { Link } from 'react-router-dom';
 
 function RecipeModal (props) {
     const displayModal = props.displayModal;
@@ -15,6 +16,7 @@ function RecipeModal (props) {
             <div className="modal-body">
               <p>{props.recipeSteps}</p>
               <input type="file" id="img" name="img" accept="image/*" />
+              <p><Link to={`/details/${props.recipeApiId}`}>View Recipe Details</Link></p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary" onClick={() => {

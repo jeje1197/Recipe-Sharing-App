@@ -20,9 +20,8 @@ function App() {
             <Routes>
               <Route path="/" element={ <Home userdata={userData}/> } exact />
               <Route path="/add" element={ <AddRecipes userdata={userData}/> } />
-              <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/>}> 
-                <Route path=":recipeId" element={<RecipeDetails />} loader={detailsLoader}/>
-              </Route>
+              <Route path="/myrecipes" element={ <MyRecipes userdata={userData}/>}/> 
+              <Route path="/details/:apiId" element={<RecipeDetails />}/>
             </Routes>
           : <Login setUserData={setUserData} setLoggedIn={setLoggedIn} />
       }
