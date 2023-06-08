@@ -16,7 +16,7 @@ function RecipeModal (props) {
             <div className="modal-body">
               <p>{props.recipeSteps}</p>
               <input type="file" id="img" name="img" accept="image/*" />
-              <p><Link to={`/details/${props.recipeApiId}`}>View Recipe Details</Link></p>
+              <p><Link className="btn btn-primary" to={`/details/${props.recipeApiId}`}>View Steps</Link></p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-primary" onClick={() => {

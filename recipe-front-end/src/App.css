@@ -17,3 +17,7 @@
   border: 0.4rem solid burlywood;
   background-color: #fff;
 }
+
+ol {
+  text-align: left;
+}
